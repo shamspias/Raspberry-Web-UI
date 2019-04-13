@@ -1,5 +1,5 @@
 # Raspberry Web UI
-Simple Python3 Flask Application for controlling the GPIO pins on a Raspberry Pi
+Python3 Flask Application for controlling the GPIO pins on a Raspberry Pi
 
 # Install
 1. First Create a Virtual Environment
