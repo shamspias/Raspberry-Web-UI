@@ -3,7 +3,7 @@ from .setup import rooms, settings
 if settings['Make'] == 'OrangePi':
     import OPi.GPIO as GPIO
 else:
-    import FakeRPi.GPIO as GPIO
+    import RPi.GPIO as GPIO
 
 if settings['GPIOMode'] == 'BOARD':
     GPIO.setmode(GPIO.BOARD)
