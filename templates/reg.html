@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block title %} Add User {% endblock %}
+
+{% block body %}
+
+    <div class="row">
+    <div class="col s12 m4 offset-m4">
+        <div class="card">
+            <div class="card-action teal green white-text">
+                <h3 class="center-align">Add User</h3>
+            </div>
+        </div>
+        <div class="card-content">
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="notification is-danger">
+                        {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+                    </div>
+        {% endif %}
+        {% endwith %}
+
+            <form method="POST" action="/signup">
+
+            <div class="form-field">
+                <label for="name">Full Name</label>
+                <input type="text" name="name" placeholder="Name" autofocus="">
+            </div><br>
+            <div class="form-field">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" placeholder="Email" autofocus="">
+                </div><br>
+            <div class="form-field">
+                <label for="password">Password</label>
+                <input type="password" name="password" placeholder="Password">
+
+            </div>
+                <br>
+                    <div class="form-field">
+                        <button class="btn-large green waves-effect waves-dark" style="width:100%;">Register</button>
+                    </div>
+                <br>
+            </form>
+
+            </div>
+        </div>
+     </div>
+      
+{% endblock %}

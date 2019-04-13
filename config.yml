@@ -1,0 +1,50 @@
+---
+Rooms:
+  - Name: Bed Room
+    Appliances:
+      - Name: Fan
+        Type: GPIO
+        Pin: 18
+      - Name: Front Light
+        Type: GPIO
+        Pin: 17
+      - Name: Back Light
+        Type: GPIO
+        Pin: 27
+      - Name: Bright Light
+        Type: GPIO
+        Pin: 22
+  - Name: Garagecl
+    Appliances:
+      - Name: Light
+        Type: GPIO
+        Pin: 23
+      - Name: Door
+        Type: GPIO
+        Pin: 24
+        Duration: 2
+  - Name: Scripts
+    Appliances:
+      - Name: Internet
+        Type: Script
+        Status: ping -c 1 8.8.8.8 > /dev/null
+        Timeout: 0.3
+      - Name: Nginx
+        Type: Script
+        Status: sudo systemctl is-active --quiet nginx 2> /dev/null
+        Action: 
+          On: sudo systemctl start nginx
+          Off: sudo systemctl stop nginx
+
+
+#Settings:
+#  Host: 0.0.0.0
+#  Port: 8000
+#  Debug: True
+#  SSL:
+#    Enabled: False
+#    Path: default
+#    Certificate: WebGPIO.cer
+#    Key: WebGPIO.key
+#  Inverted: False
+#  RefreshRate: 4

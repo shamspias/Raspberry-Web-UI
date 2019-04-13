@@ -1,0 +1,17 @@
+<button class='container{{ state }}' onclick='tarabati({{ room_index }},{{ appliance_index }},{{ state }})'>{{ name }}</button>
+
+<script>
+function tarabati(r, a, s) {
+    var xhttp = new XMLHttpRequest();
+    if(s == 0){
+        s = 1;
+        xhttp.open("GET", "button/"+r+"/"+a+"/"+s+"/", true);
+	    xhttp.send();
+    }
+    else{
+        s = 0;
+        xhttp.open("GET", "button/"+r+"/"+a+"/"+s+"/", true);
+	    xhttp.send();
+    }
+}
+</script>

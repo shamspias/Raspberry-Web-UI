@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %} Profile {% endblock %}
+
+{% block body %}
+
+   <br>
+      <h1 class="header center orange-text">Hello {{ name }}!</h1>
+
+      <br><br>
+
+    {% if current_user.is_authenticated %}
+
+      <div class="row center">
+          <a href="{{ url_for('main.index') }}" id="download-button" class="btn-large waves-effect waves-light orange">GO TO HOME</a>
+
+          <a href="{{ url_for('main.index') }}" id="download-button" class="btn-large waves-effect waves-light orange">ROOM CONTROLS</a>
+      </div>
+
+    {% endif %}
+      
+{% endblock %}

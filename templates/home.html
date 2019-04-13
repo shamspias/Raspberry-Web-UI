@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block title %} HOME {% endblock %}
+
+{% block body %}
+
+   <br>
+      <h1 class="header center orange-text">Web Application Based Wireless Home Automation System</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">A modern way to control your home.</h5>
+      </div>
+
+    {% if current_user.is_authenticated %}
+
+      <div class="row center">
+          <a href="{{ url_for('auth.signup') }}" id="download-button" class="btn-large waves-effect waves-light orange">ADD USER</a>
+
+          <a href="{{ url_for('main.controlroom') }}" id="download-button" class="btn-large waves-effect waves-light orange">ROOM CONTROLS</a>
+      </div>
+
+    {% endif %}
+
+    {% if not current_user.is_authenticated %}
+      <div class="row center">
+        <a href="{{ url_for('auth.login') }}" id="download-button" class="btn-large waves-effect waves-light orange">LOGIN</a>
+      </div>
+
+    {% endif %}
+      <br><br>
+      
+{% endblock %}

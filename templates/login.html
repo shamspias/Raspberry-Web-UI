@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block title %} LOGIN {% endblock %}
+
+{% block body %}
+
+   <div class="row">
+
+    <div class="col s12 m4 offset-m4">
+        <div class="card border-box-sizing">
+            <div class="card-action teal green white-text">
+                <h3 class="center-align">LOGIN</h3>
+            </div>
+        </div>
+
+        <div class="card-content">
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="notification is-danger">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="/login">
+
+                <div class="form-field">
+                <label for="username">Email</label>
+                <input type="email" name="email" placeholder="Your Email" autofocus="">
+                </div>
+
+                <br>
+
+                <div class="form-field">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" placeholder="Your Password">
+                </div>
+
+                <br>
+
+                <div class="form-field">
+                    <label>
+                        <input type="checkbox" checked="checked" />
+                        <span>Remember me</span>
+                    </label>
+
+                </div>
+
+                <br>
+
+                <div class="form-field">
+
+                    <button class="btn-large waves-effect green waves-dark" style="width:100%;">Login</button>
+                </div>
+
+                <br>
+
+            </form>
+
+            </div>
+        </div>
+    </div>
+      
+{% endblock %}
