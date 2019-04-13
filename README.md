@@ -3,37 +3,40 @@ Simple Python3 Flask Application for controlling the GPIO pins on a Raspberry Pi
 
 # Install
 1. First Create a Virtual Environment
-	-->Windows First, make sure you have python installed on your pcopen cmd or PowerShell
+
+-->Windows First, make sure you have python installed on your pcopen cmd or PowerShell
 	
-		python -m venv  yourvenv
-    -->Linux and others Open terminal
+	python -m venv  yourvenv
+		
+-->Linux and others Open terminal
 	
         sudo apt-get install python3-pip
         pip3 install virtualenv
+	
 After installing virtualenv just type
 
         virtualenv yourvenv
 
 2. Activate Virtual Environment.
 
-	-->Windows
+-->Windows
 	
-		yourvenv/Scripts/activate
+	yourvenv/Scripts/activate
 		
 If show any error then open Powershell in admin
 then type
 
         Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 and press "A" then Enter.
+-->Linux
 
-    -->Linux
         . yourvenv/bin/activate
 		
 3. Install the requirement .txt
-	-->Windows
+-->Windows
 	
-		pip install -r requirement .txt
-    -->Linux
+	pip install -r requirement .txt
+-->Linux
 	
         pip3 install -r requirement .txt
 
