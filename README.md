@@ -27,15 +27,18 @@ If show any error then open Powershell in admin
 then type
 
         Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
-and press "A" then Enter.
+	and press "A" then Enter.
+
 -->Linux
 
         . yourvenv/bin/activate
 		
 3. Install the requirement .txt
+
 -->Windows
 	
 	pip install -r requirement .txt
+
 -->Linux
 	
         pip3 install -r requirement .txt
