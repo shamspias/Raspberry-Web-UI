@@ -74,3 +74,12 @@ def button(room_index, appliance_index, statuss):
     }
     return render_template('button.html', **templateData)
 
+from .lib import sensors
+
+@main.route("/sensors/")
+@login_required
+def sensor():
+    pias = {
+    'pir': sensors.pirS()
+    }
+    return render_template('sensors.html', **pias)

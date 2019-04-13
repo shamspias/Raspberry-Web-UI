@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block title %} Sensors {% endblock %}
+
+{% block body %}
+<div class="center">
+<h4 class="center orange-text">PIR Sensor</h4>
+{% if pir==1 %}
+    <button class="ben red center-align">Some Move Detected</button>
+{% else %}
+    <button class="btn green center-align">Normal Condition</button>
+{% endif %}
+<br><br>
+
+<h4 class="center orange-text">Temperature</h4>
+<button class="btn center-align">{{ pir }} Dig F</button>
+</div>
+    <br><br><br><br><br><br>
+{% endblock %}
