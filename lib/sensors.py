@@ -1,6 +1,6 @@
 #Sensors are not fully implemented yet it's now testing condition
 
-import FakeRPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 def pirS():
     while True:

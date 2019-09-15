@@ -41,12 +41,8 @@ class Appliance:
 
     def setState(self, state):
         if self.type == 'GPIO':
-            if state > 1:
-                original_state = GPIO.input(self.pin)
-                new_state = 1 - original_state
-            else:
-                new_state = 1 - self.active - state
-            GPIO.output(self.pin, new_state)
+
+            GPIO.output(self.pin, state)
             if GPIO.input(self.pin) is self.active:
                 return 1
             else:

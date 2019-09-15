@@ -1,7 +1,7 @@
 import os, sys, yaml
 import yamlordereddictloader
 
-configPath = os.path.join(sys.path[0], "projecttest\config.yml")
+configPath = os.path.join(sys.path[0], "project/config.yml")
 try:
     with open(configPath, 'r') as ymlfile:
         cfg = yaml.load(ymlfile, Loader=yamlordereddictloader.Loader)

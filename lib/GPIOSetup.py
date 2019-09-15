@@ -4,6 +4,7 @@ if settings['Make'] == 'OrangePi':
     import OPi.GPIO as GPIO
 else:
     import RPi.GPIO as GPIO
+    # import FakeRPi.GPIO as GPIO
 
 if settings['GPIOMode'] == 'BOARD':
     GPIO.setmode(GPIO.BOARD)

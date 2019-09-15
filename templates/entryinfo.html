@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block title %}Entry Details{% endblock %}
+
+{% block body %}
+<div class="center">
+
+<h4 class="center orange-text">Entry List</h4>
+
+ <table class="responsive-table">
+        <thead>
+          <tr>
+              <th>Person Name</th>
+              <th>Entry Time</th>
+
+          </tr>
+        </thead>
+
+        <tbody>
+        {% for item in data %}
+        <tr>
+            <td>{{ item.user_name }}</td>
+            <td>{{ item.door_entry_time }}</td>
+            
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+
+<br><br>
+
+</div>
+    <br><br><br><br><br><br>
+{% endblock %}

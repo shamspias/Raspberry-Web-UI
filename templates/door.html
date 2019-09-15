@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %} Door Lock System {% endblock %}
+
+{% block body %}
+<div class="center">
+<h4 class="center orange-text">Door Lock System</h4>
+{% if dor==1 %}
+    <button class="btn red center-align">Door Open</button>
+    <br><br>
+    <a href="{{ url_for('main.doorclose') }}" id="download-button" class="btn-large waves-effect waves-light green">Close The Door</a>
+{% else %}
+    <button class="btn green center-align">Door Closed</button>
+    <br><br>
+    <a href="{{ url_for('main.door') }}" id="download-button" class="btn-large waves-effect waves-light red">Open The Door</a>
+{% endif %}
+<br><br>
+
+</div>
+    <br><br><br><br><br><br>
+{% endblock %}

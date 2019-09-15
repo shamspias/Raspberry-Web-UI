@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, Flask
+from flask import Blueprint, render_template
 from flask_login import login_required, current_user
-
+from . import db
+from .models import User, EntryInfo
 main = Blueprint(name='main', import_name=__name__)
 
 
@@ -74,12 +75,56 @@ def button(room_index, appliance_index, statuss):
     }
     return render_template('button.html', **templateData)
 
+
 from .lib import sensors
+
 
 @main.route("/sensors/")
 @login_required
 def sensor():
     pias = {
-    'pir': sensors.pirS()
+        'pir': sensors.pirS()
     }
     return render_template('sensors.html', **pias)
+
+
+from .lib import qrcodesstem, doorSystem
+
+@main.route("/door/")
+@login_required
+def door():
+    datamain = qrcodesstem.doorLockSystem()
+    user1 = User.query.filter_by(email=datamain).first()
+
+    if user1:
+        doorSystem.doorOpen()
+        dorja = 1
+        entryList = EntryInfo(door_entry_time=datetime.datetime.now(), user_name=user1.name)
+        db.session.add(entryList)
+        db.session.commit()
+    else:
+        dorja = 0
+    data = {
+        'dor': dorja,
+        'dorinfo': "Welcome To Home"
+    }
+    return render_template('door.html', **data)
+
+@main.route("/door/close")
+@login_required
+def doorclose():
+    doorSystem.doorClose()
+    return render_template('home.html')
+
+@main.route("/door/open")
+@login_required
+def dooropen():
+    doorSystem.doorOpen()
+    return render_template('home.html')
+    
+
+@main.route("/entry/")
+@login_required
+def entry():
+    info = EntryInfo.query.all()
+    return render_template('entryinfo.html', data=info)

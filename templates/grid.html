@@ -1,22 +1,39 @@
-	{% for i, room in enumerate(rooms) %}
-	<h4 class='header col s12 orange-text center-align'>{{ room['Name'] }}</h4>
-	{% for j, Appliance in enumerate(room['Appliances']) %}
-		<span id='button{{ i }}{{ j }}'><button class='btn container{{ Appliance['State'] }}' onclick='tarabati({{ i }},{{ j }}),{{ Appliance['State'] }}'>{{ Appliance['Name'] }}</button></span>
-	{% endfor %}
-{% endfor %}
 
+<a href="{{ url_for('main.door') }}" id="download-button" class="btn-large waves-effect waves-light orange">DOOR</a>
+{% for i, room in enumerate(rooms) %}
+<h4 class='header col s12 orange-text center-align'>{{ room['Name'] }}</h4>
+{% for j, Appliance in enumerate(room['Appliances']) %}
+    <span id='button{{ i }}{{ j }}'><button class='btn container{{ Appliance['State'] }}' onclick='tarabati({{ i }},{{ j }},{{ Appliance['State'] }})'>{{ Appliance['Name'] }}</button></span>
+{% endfor %}
+{% endfor %}
 <script>
+
 function tarabati(r, a, s) {
-    var xhttp = new XMLHttpRequest();
-    if(s == 0){
-        s = 1;
-        xhttp.open("GET", "button/"+r+"/"+a+"/"+s+"/", true);
-	    xhttp.send();
-    }
-    else{
-        s = 0;
-        xhttp.open("GET", "button/"+r+"/"+a+"/"+s+"/", true);
-	    xhttp.send();
-    }
+
+var xhttp = new XMLHttpRequest();
+
+if(s == 1){
+
+   s = 0;
+
+    xhttp.open("GET", "button/"+r+"/"+a+"/"+s+"", true);
+
+    xhttp.send();
+ 
+
 }
+
+else if(s == 0){
+
+    s = 1;
+
+    xhttp.open("GET", "button/"+r+"/"+a+"/"+s+"", true);
+
+    xhttp.send();
+ 
+
+}
+
+}
+
 </script>
