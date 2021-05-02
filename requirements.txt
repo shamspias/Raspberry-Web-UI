@@ -16,7 +16,7 @@ numpy==1.13.3
 opencv-contrib-python-headless==3.4.4.19
 python-dateutil==2.8.0
 python-editor==1.0.4
-PyYAML==5.1.2
+PyYAML>=5.4
 pyzbar==0.1.8
 RPi.GPIO==0.7.0
 six==1.12.0
