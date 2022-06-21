@@ -12,7 +12,7 @@ lib==3.0.0
 Mako==1.1.0
 MarkupSafe==1.1.1
 mysqlclient==1.4.4
-numpy==1.13.3
+numpy==1.22.0
 opencv-contrib-python-headless==4.1.2.30
 python-dateutil==2.8.0
 python-editor==1.0.4
