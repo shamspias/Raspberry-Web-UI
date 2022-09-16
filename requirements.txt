@@ -9,7 +9,7 @@ imutils==0.5.3
 itsdangerous==1.1.0
 jinja2>=2.11.3
 lib==3.0.0
-Mako==1.1.0
+Mako==1.2.2
 MarkupSafe==1.1.1
 mysqlclient==1.4.4
 numpy==1.22.0
